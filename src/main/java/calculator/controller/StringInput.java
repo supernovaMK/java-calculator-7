@@ -1,20 +1,26 @@
-package calculator.model;
+package calculator.controller;
+
+import calculator.model.DelimiterInputData;
+import calculator.model.InputValidator;
+import calculator.model.SortNumbers;
+import java.util.List;
 
 public class StringInput {
 
-    private DefaultInput defaultInput;
-    private InputValidator inputValidator;
     private SortNumbers sortNumbers;
 
     public StringInput(String input) {
 
-        defaultInput = new DefaultInput(input);
-        inputValidator = new InputValidator(defaultInput);
-        sortNumbers = new SortNumbers(defaultInput);
+        InputValidator inputValidator = new InputValidator(input);
+
+        DelimiterInputData delimiterInputData = inputValidator.validated();
+
+        sortNumbers = new SortNumbers(delimiterInputData);
 
     }
 
-    public ResultDto result() {
-        return new ResultDto(defaultInput.getNumbers());
+    public List<Long> numbers() {
+
+        return sortNumbers.findNumbers();
     }
 }
