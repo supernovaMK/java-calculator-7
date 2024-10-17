@@ -2,7 +2,6 @@ package calculator.model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SortNumbers {
@@ -24,7 +23,7 @@ public class SortNumbers {
         String reg = makeReqularExpression(customDelimiter);
 
         return Arrays.stream(input.split(reg))
-                .filter(Objects::nonNull)
+                .filter(s -> !s.isEmpty())
                 .map(Long::parseLong)
                 .collect(Collectors.toList());
     }
@@ -38,7 +37,9 @@ public class SortNumbers {
 
         return str.replace("\\", "\\\\")
                 .replace("[", "\\[")
-                .replace("]", "\\]");
+                .replace("]", "\\]")
+                .replace(" ", "\\s");
+
     }
 
 }
