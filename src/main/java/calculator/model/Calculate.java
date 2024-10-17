@@ -3,14 +3,20 @@ package calculator.model;
 import java.util.List;
 
 public class Calculate {
-    List<Long> numbers;
+    private List<Long> numbers;
+    private long result = 0;
 
-    public Calculate(StringInput stringInput) {
-        this.numbers = stringInput.numbers;
+    public Calculate(List<Long> numbers) {
+        this.numbers = numbers;
     }
 
-    public long sum() {
-        return numbers.stream().mapToLong(Long::longValue).sum();
+    public Long sum() {
+        if (numbers != null) {
+            result = numbers.stream()
+                    .mapToLong(Long::longValue)
+                    .sum();
+        }
+        return result;
 
     }
 }
