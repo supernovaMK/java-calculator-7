@@ -37,8 +37,8 @@ public class SortNumbers {
 
         return str.replace("\\", "\\\\")
                 .replace("[", "\\[")
-                .replace("]", "\\]")
-                .replace(" ", "\\s");
+                .replace("]", "\\]");
+
 
     }
 
