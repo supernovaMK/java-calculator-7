@@ -1,8 +1,8 @@
 package calculator.controller;
 
 import calculator.model.DelimiterInputData;
-import calculator.model.InputValidator;
 import calculator.model.SortNumbers;
+import calculator.model.validator.InputValidator;
 import java.util.List;
 
 public class StringInput {
@@ -13,7 +13,7 @@ public class StringInput {
 
         InputValidator inputValidator = new InputValidator(input);
 
-        DelimiterInputData delimiterInputData = inputValidator.validated();
+        DelimiterInputData delimiterInputData = inputValidator.validatedData();
 
         sortNumbers = new SortNumbers(delimiterInputData);
 
