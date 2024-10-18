@@ -19,7 +19,9 @@ public class Calculator {
 
         Calculate calculate = new Calculate(stringInput.numbers());
 
-        System.out.println(RESULTMESSAGE + calculate.sum());
+        Long result = calculate.sum();
+
+        System.out.println(RESULTMESSAGE + result);
     }
 
 
